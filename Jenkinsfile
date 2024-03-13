@@ -12,6 +12,10 @@ pipeline{
             }
          }
          stage ("dev deploy"){
+            when{
+                branch "dev"
+            } 
+               
             steps{
             echo "deploying to dev environment"
             }
