@@ -12,8 +12,30 @@ pipeline{
             }
          }
          stage ("dev deploy"){
-            steps{
+            when{
+                branch "dev"
+            } 
+    
+           steps{
             echo "deploying to dev environment"
+            }
+         }
+         stage ("qa deploy"){
+            when{
+                branch "qa"
+            } 
+               
+            steps{
+            echo "deploying to qa environment"
+            }
+         }
+         stage ("prod deploy"){
+            when{
+                branch "main"
+            } 
+               
+            steps{
+            echo "deploying to prod environment"
             }
          }
     }
